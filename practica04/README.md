@@ -1,0 +1,7 @@
+1. Express manda los rechazos de un handler async directo al middleware de errores, sin try/catch en cada ruta. ¿Qué tendrían que agregar en cada ruta si esto no fuera así? Se tendria que agregar un bloque try/catch en cada handler async para capturar los errores y enviarlos manualmente al middleware de errores y esto haria que las rutas tuvieran mas codigo repetido y dificultaria su mantenimiento
+
+2. ¿Por qué el servicio no lanza directamente un 409 en vez de EjemplarPrestadoError?
+Porque el servicio pertenece a la capa de negocio y no debe depender de http y EjemplarPrestadoError representa una regla de negocio: un ejemplar ya esta prestado. Despues, la capa HTTP interpreta ese error y lo convierte en un codigo 409 Conflict y asi, el mismo servicio podria utilizarse desde otros tipos de clientes sin depender de express
+
+3. Si mañana agregaran una app móvil que también consume esta API, ¿qué archivos de esta práctica tendrían que tocar?
+Principalmente no se tendria que modificar la capa de negocio ya que la aplicacion movil funcionaria como otro cliente y consumiria los mismos endpoints de la API y en esta practica, los archivos contratos, http/servidor.ts y http/validar.ts ya contienen la interfaz necesaria para recibir y responder solicitudes y por lo tanto si la API actual satisface las necesidades de la aplicacion movil no seria necesario modificar esos archivos solo se desarrollaria el nuevo cliente movil
