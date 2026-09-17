@@ -1,0 +1,16 @@
+### 1. Ruta raíz
+GET http://localhost:3000
+
+### 2. Consultar clases
+GET http://localhost:3000/clases
+
+### 3. Agregar una clase
+POST http://localhost:3000/clases
+Content-Type: application/json
+
+{
+  "nombre": "CrossFit"
+}
+
+### 4. Consultar clases nuevamente
+GET http://localhost:3000/clases
