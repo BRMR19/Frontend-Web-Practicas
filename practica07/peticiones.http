@@ -1,0 +1,30 @@
+### Prueba 
+GET http://localhost:3000/inscripciones
+
+### Listar miembros
+GET http://localhost:3000/miembros
+
+### Buscar miembro
+GET http://localhost:3000/miembros/1
+
+### Crear miembro
+POST http://localhost:3000/miembros
+Content-Type: application/json
+
+{
+  "nombre": "Bruno Morales",
+  "correo": "bruno@itson.mx",
+  "membresia": "premium"
+}
+
+### Actualizar miembro
+PATCH http://localhost:3000/miembros/4
+Content-Type: application/json
+
+{
+  "membresia": "plus",
+  "activo": false
+}
+
+### Eliminar miembro
+DELETE http://localhost:3000/miembros/4
